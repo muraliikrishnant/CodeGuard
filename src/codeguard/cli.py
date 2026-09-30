@@ -19,7 +19,7 @@ console = Console()
 
 _PATH_ARG = typer.Argument(..., help="Path to git repository to scan")
 _HISTORY_OPT = typer.Option(True, help="Sweep full git history")
-_PROVIDER_OPT = typer.Option("none", help="LLM provider: gemini, claude, nvidia, or none")
+_PROVIDER_OPT = typer.Option("nvidia", help="LLM provider: nvidia, gemini, claude, or none")
 _MODEL_OPT = typer.Option("", help="Model name override")
 _FORMAT_OPT = typer.Option("json", "--format", help="Output format: json, sarif, md")
 _OUTPUT_OPT = typer.Option(None, "--output", "-o", help="Output file path")
