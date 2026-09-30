@@ -15,3 +15,5 @@ frontend/dist/
 frontend/.next/
 *.db
 .venv/
+results.json
+results.sarif
