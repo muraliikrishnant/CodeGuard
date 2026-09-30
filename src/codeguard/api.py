@@ -24,7 +24,7 @@ app.add_middleware(
 class ScanRequest(BaseModel):
     repo_path: str
     history: bool = True
-    provider: str = "none"
+    provider: str = "nvidia"
     model: str = ""
     threshold: float = 0.8
 

@@ -19,7 +19,7 @@ class NvidiaProvider:
     def __init__(
         self,
         api_key: str,
-        model: str = "meta/llama-3.1-70b-instruct",
+        model: str = "meta/llama-3.2-11b-vision-instruct",
     ) -> None:
         self.client = OpenAI(
             base_url="https://integrate.api.nvidia.com/v1",
