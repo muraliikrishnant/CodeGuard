@@ -37,6 +37,16 @@ def _get_provider(config: ScanConfig) -> object | None:
         from codeguard.triage.claude import ClaudeProvider
 
         return ClaudeProvider(api_key=key, model=config.model or "claude-sonnet-4-20250514")
+    elif config.provider == "nvidia":
+        key = config.nvidia_api_key
+        if not key:
+            logger.error("NVIDIA_API_KEY not set")
+            return None
+        from codeguard.triage.nvidia import NvidiaProvider
+
+        return NvidiaProvider(
+            api_key=key, model=config.model or "meta/llama-3.1-70b-instruct"
+        )
     return None
 
 

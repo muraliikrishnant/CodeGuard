@@ -5,7 +5,10 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
 from pydantic import BaseModel
+
+load_dotenv()
 
 
 class ScanConfig(BaseModel):
@@ -32,6 +35,10 @@ class ScanConfig(BaseModel):
     @property
     def anthropic_api_key(self) -> str | None:
         return os.environ.get("ANTHROPIC_API_KEY")
+
+    @property
+    def nvidia_api_key(self) -> str | None:
+        return os.environ.get("NVIDIA_API_KEY")
 
 
 DEFAULT_CONFIG = ScanConfig()
