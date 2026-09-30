@@ -44,9 +44,7 @@ def _get_provider(config: ScanConfig) -> object | None:
             return None
         from codeguard.triage.nvidia import NvidiaProvider
 
-        return NvidiaProvider(
-            api_key=key, model=config.model or "meta/llama-3.1-70b-instruct"
-        )
+        return NvidiaProvider(api_key=key, model=config.model or "meta/llama-3.1-70b-instruct")
     return None
 
 

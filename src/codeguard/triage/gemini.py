@@ -49,9 +49,8 @@ class GeminiProvider:
         )
 
         if response.usage_metadata:
-            self.total_tokens += (
-                (response.usage_metadata.prompt_token_count or 0)
-                + (response.usage_metadata.candidates_token_count or 0)
+            self.total_tokens += (response.usage_metadata.prompt_token_count or 0) + (
+                response.usage_metadata.candidates_token_count or 0
             )
 
         raw: str = response.text or ""

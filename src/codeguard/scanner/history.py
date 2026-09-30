@@ -13,17 +13,51 @@ from codeguard.scanner.detect import _hash_secret, _map_secret_type
 
 logger = logging.getLogger(__name__)
 
-SKIP_EXTENSIONS = frozenset({
-    ".lock", ".sum", ".png", ".jpg", ".jpeg", ".gif", ".ico", ".woff", ".woff2",
-    ".ttf", ".eot", ".svg", ".mp4", ".webm", ".pdf", ".zip", ".gz", ".tar",
-    ".min.js", ".min.css", ".map", ".pyc", ".class", ".o", ".so", ".dll",
-})
+SKIP_EXTENSIONS = frozenset(
+    {
+        ".lock",
+        ".sum",
+        ".png",
+        ".jpg",
+        ".jpeg",
+        ".gif",
+        ".ico",
+        ".woff",
+        ".woff2",
+        ".ttf",
+        ".eot",
+        ".svg",
+        ".mp4",
+        ".webm",
+        ".pdf",
+        ".zip",
+        ".gz",
+        ".tar",
+        ".min.js",
+        ".min.css",
+        ".map",
+        ".pyc",
+        ".class",
+        ".o",
+        ".so",
+        ".dll",
+    }
+)
 
-SKIP_FILENAMES = frozenset({
-    "package-lock.json", "yarn.lock", "pnpm-lock.yaml", "Pipfile.lock",
-    "poetry.lock", "composer.lock", "Gemfile.lock", "go.sum",
-    "Cargo.lock", "flake.lock",
-})
+SKIP_FILENAMES = frozenset(
+    {
+        "package-lock.json",
+        "yarn.lock",
+        "pnpm-lock.yaml",
+        "Pipfile.lock",
+        "poetry.lock",
+        "composer.lock",
+        "Gemfile.lock",
+        "go.sum",
+        "Cargo.lock",
+        "flake.lock",
+    }
+)
 
 
 def _should_skip_file(file_path: str) -> bool:
