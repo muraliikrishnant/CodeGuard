@@ -1,0 +1,28 @@
+# Frozen train/held-out split by repo. DO NOT MODIFY after first baseline run.
+# Split rationale: ~70% dev, ~30% held-out, stratified by language.
+
+dev:
+  - expressjs-express
+  - pallets-flask
+  - django-django
+  - spring-projects-spring-boot
+  - gin-gonic-gin
+  - tiangolo-fastapi
+  - rails-rails
+  - laravel-laravel
+  - nestjs-nest
+  - kubernetes-kubernetes
+  - hashicorp-terraform
+  - ansible-ansible
+  - grafana-grafana
+  - prometheus-prometheus
+  - apache-airflow
+
+held_out:
+  - pytorch-pytorch
+  - facebook-react
+  - vuejs-core
+  - vercel-next.js
+  - supabase-supabase
+  - rust-lang-rust
+  - dotnet-runtime

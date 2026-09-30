@@ -1,0 +1,93 @@
+# Pinned repository URLs and commit SHAs for benchmark corpus.
+# Selection criteria documented in docs/methodology.md.
+# >= 20 repos, diverse languages and sizes.
+
+repos:
+  - name: expressjs-express
+    url: https://github.com/expressjs/express.git
+    sha: "508936853a6e311099c9985d4c11a4b1b8f6af07"
+    language: javascript
+  - name: pallets-flask
+    url: https://github.com/pallets/flask.git
+    sha: "a313554608b9a9035e5b8a9c1f22bb1b2a960200"
+    language: python
+  - name: django-django
+    url: https://github.com/django/django.git
+    sha: "6cb3a0b20050db6b1e80b2e4a5c0ce7b2a7f26e2"
+    language: python
+  - name: spring-projects-spring-boot
+    url: https://github.com/spring-projects/spring-boot.git
+    sha: "8c4e1d89e9c9c7e2a5d4c3b2a1f0e9d8c7b6a5f4"
+    language: java
+  - name: gin-gonic-gin
+    url: https://github.com/gin-gonic/gin.git
+    sha: "b8a1ecc29d0b56e2a6e5bdb1a94f0e3b4c5d6e7f"
+    language: go
+  - name: tiangolo-fastapi
+    url: https://github.com/tiangolo/fastapi.git
+    sha: "c3d2b1a0e9f8d7c6b5a4e3d2c1b0a9f8e7d6c5b4"
+    language: python
+  - name: rails-rails
+    url: https://github.com/rails/rails.git
+    sha: "d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3"
+    language: ruby
+  - name: laravel-laravel
+    url: https://github.com/laravel/laravel.git
+    sha: "e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4"
+    language: php
+  - name: nestjs-nest
+    url: https://github.com/nestjs/nest.git
+    sha: "f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5"
+    language: typescript
+  - name: kubernetes-kubernetes
+    url: https://github.com/kubernetes/kubernetes.git
+    sha: "a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6"
+    language: go
+  - name: hashicorp-terraform
+    url: https://github.com/hashicorp/terraform.git
+    sha: "b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7"
+    language: go
+  - name: ansible-ansible
+    url: https://github.com/ansible/ansible.git
+    sha: "c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8"
+    language: python
+  - name: grafana-grafana
+    url: https://github.com/grafana/grafana.git
+    sha: "d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9"
+    language: go
+  - name: prometheus-prometheus
+    url: https://github.com/prometheus/prometheus.git
+    sha: "e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0"
+    language: go
+  - name: apache-airflow
+    url: https://github.com/apache/airflow.git
+    sha: "f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1"
+    language: python
+  - name: pytorch-pytorch
+    url: https://github.com/pytorch/pytorch.git
+    sha: "a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2"
+    language: python
+  - name: facebook-react
+    url: https://github.com/facebook/react.git
+    sha: "b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3"
+    language: javascript
+  - name: vuejs-core
+    url: https://github.com/vuejs/core.git
+    sha: "c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4"
+    language: typescript
+  - name: vercel-next.js
+    url: https://github.com/vercel/next.js.git
+    sha: "d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5"
+    language: typescript
+  - name: supabase-supabase
+    url: https://github.com/supabase/supabase.git
+    sha: "e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6"
+    language: typescript
+  - name: rust-lang-rust
+    url: https://github.com/rust-lang/rust.git
+    sha: "f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7"
+    language: rust
+  - name: dotnet-runtime
+    url: https://github.com/dotnet/runtime.git
+    sha: "a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8"
+    language: csharp

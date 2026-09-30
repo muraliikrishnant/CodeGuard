@@ -1,0 +1,17 @@
+.env
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+benchmarks/results/raw/
+benchmarks/corpus/repos/
+.codeguard-cache/
+node_modules/
+frontend/dist/
+frontend/.next/
+*.db
+.venv/
