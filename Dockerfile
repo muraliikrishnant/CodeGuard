@@ -11,9 +11,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends git && rm -rf /
 RUN useradd -m codeguard
 COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
 COPY --from=builder /usr/local/bin/codeguard /usr/local/bin/codeguard
-COPY --from=builder /app/src /app/src
+COPY --from=builder /usr/local/bin/detect-secrets /usr/local/bin/detect-secrets
 
 USER codeguard
 WORKDIR /repo
 ENTRYPOINT ["codeguard"]
-CMD ["scan", "/repo"]
+CMD ["/repo"]
