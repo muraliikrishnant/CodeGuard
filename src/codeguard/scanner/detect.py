@@ -50,7 +50,7 @@ def _map_secret_type(detector: str) -> SecretType:
 def scan_working_tree(repo_path: Path, config: ScanConfig) -> list[Candidate]:
     """Scan the working tree at HEAD using detect-secrets."""
     result = subprocess.run(
-        ["detect-secrets", "scan", "--json", str(repo_path)],
+        ["detect-secrets", "scan", str(repo_path)],
         capture_output=True,
         text=True,
         timeout=config.timeout_seconds * 10,

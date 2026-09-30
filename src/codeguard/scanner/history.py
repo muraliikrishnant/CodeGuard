@@ -13,6 +13,26 @@ from codeguard.scanner.detect import _hash_secret, _map_secret_type
 
 logger = logging.getLogger(__name__)
 
+SKIP_EXTENSIONS = frozenset({
+    ".lock", ".sum", ".png", ".jpg", ".jpeg", ".gif", ".ico", ".woff", ".woff2",
+    ".ttf", ".eot", ".svg", ".mp4", ".webm", ".pdf", ".zip", ".gz", ".tar",
+    ".min.js", ".min.css", ".map", ".pyc", ".class", ".o", ".so", ".dll",
+})
+
+SKIP_FILENAMES = frozenset({
+    "package-lock.json", "yarn.lock", "pnpm-lock.yaml", "Pipfile.lock",
+    "poetry.lock", "composer.lock", "Gemfile.lock", "go.sum",
+    "Cargo.lock", "flake.lock",
+})
+
+
+def _should_skip_file(file_path: str) -> bool:
+    """Skip lockfiles, binaries, and other non-secret-bearing files."""
+    name = file_path.rsplit("/", 1)[-1] if "/" in file_path else file_path
+    if name in SKIP_FILENAMES:
+        return True
+    return any(file_path.endswith(ext) for ext in SKIP_EXTENSIONS)
+
 
 def sweep_history(repo_path: Path, config: ScanConfig) -> list[Candidate]:
     """Walk all reachable commits and scan each for secrets using detect-secrets."""
@@ -59,6 +79,8 @@ def _scan_commit(repo: Repo, commit: object, config: ScanConfig) -> list[Candida
             continue
 
         file_path = str(blob.path)  # type: ignore[union-attr]
+        if _should_skip_file(file_path):
+            continue
         for _line_num, line in enumerate(data.splitlines(), 1):
             for finding in _quick_entropy_check(line, file_path, str(commit.hexsha)):
                 candidates.append(finding)

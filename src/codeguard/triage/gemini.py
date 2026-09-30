@@ -5,7 +5,8 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 from codeguard.models import Label, LLMVerdict, TriageContext
 from codeguard.triage.prompts import CLASSIFY_TEMPLATE, SYSTEM_PROMPT
@@ -18,12 +19,7 @@ class GeminiProvider:
     """Gemini-based LLM triage provider."""
 
     def __init__(self, api_key: str, model: str = "gemini-2.0-flash") -> None:
-        genai.configure(api_key=api_key)  # type: ignore[attr-defined]
-        self.model: Any = genai.GenerativeModel(  # type: ignore[attr-defined]
-            model_name=model,
-            system_instruction=SYSTEM_PROMPT,
-            generation_config={"temperature": 0.0},
-        )
+        self.client: Any = genai.Client(api_key=api_key)
         self.model_name = model
         self.total_tokens = 0
 
@@ -43,9 +39,20 @@ class GeminiProvider:
             code_window=context.code_window,
         )
 
-        response = self.model.generate_content(prompt)
+        response = self.client.models.generate_content(
+            model=self.model_name,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                system_instruction=SYSTEM_PROMPT,
+                temperature=0.0,
+            ),
+        )
+
         if response.usage_metadata:
-            self.total_tokens += response.usage_metadata.total_token_count or 0
+            self.total_tokens += (
+                (response.usage_metadata.prompt_token_count or 0)
+                + (response.usage_metadata.candidates_token_count or 0)
+            )
 
         raw: str = response.text or ""
         verdict = parse_llm_response(raw)
